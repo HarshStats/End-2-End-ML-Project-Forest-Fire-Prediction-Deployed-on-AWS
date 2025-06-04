@@ -87,7 +87,7 @@ Some features are highly correlated (e.g., FWI components), which was addressed 
 
 ### 4. FWI Boxplot
 
-![Boxplot of Fire Weather Index (FWI)](images/images/boxplot_fwi.png)
+![Boxplot of Fire Weather Index (FWI)](images/boxplot_fwi.png)
 
 *Takeaway:*  
 FWI values are mostly concentrated at lower values, with a few high outliers, indicating that extreme fire risk days are rare.
