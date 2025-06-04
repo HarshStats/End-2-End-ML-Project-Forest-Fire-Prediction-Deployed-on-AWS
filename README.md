@@ -148,6 +148,6 @@ The interactive web application allows users to easily predict the Forest Fire W
 
 ## ✍️ Author
 
-- [Your Name](https://github.com/HarshStats)
+- [Harsh Rana](https://github.com/HarshStats)
 
 ---
