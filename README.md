@@ -135,7 +135,7 @@ The interactive web application allows users to easily predict the Forest Fire W
     ```bash
     python application.py
     ```
-3. Open your browser at [http://localhost:5000](http://localhost:5000)
+3. Open your browser at [http://localhost:5000](http://localhost:5000) + /predictdata at the end of your URL
 
 ---
 
