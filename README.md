@@ -43,15 +43,15 @@ A Flask web application that predicts the Forest Fire Weather Index (FWI) for Al
 
 ## 📈 Model Comparison
 
-               Model       MAE  R2 Score
-
-0  Linear Regression  0.546824  0.984766
-1              Lasso  1.133176  0.949202
-2            LassoCV  0.619970  0.982095
-3              Ridge  0.564231  0.984299
-4            RidgeCV  0.564231  0.984299
-5         ElasticNet  1.882235  0.875346
-6       ElasticNetCV  0.657595  0.981422
+| Model           | MAE      | R² Score  |
+|-----------------|----------|-----------|
+| Linear Regression | 0.5468   | 0.9848    |
+| Lasso             | 1.1332   | 0.9492    |
+| LassoCV           | 0.6200   | 0.9821    |
+| Ridge             | 0.5642   | 0.9843    |
+| RidgeCV           | 0.5642   | 0.9843    |
+| ElasticNet        | 1.8822   | 0.8753    |
+| ElasticNetCV      | 0.6576   | 0.9814    |
 
 
 ---
@@ -60,7 +60,7 @@ A Flask web application that predicts the Forest Fire Weather Index (FWI) for Al
 
 ### 1. Feature Distributions
 
-![Feature Density Histograms](feature_density_histograms.png)
+![Feature Density Histograms](images/feature_density_histograms.png)
 
 *Takeaway:*  
 Most features are well distributed, but some (like Rain) are heavily skewed. This helps understand the data spread and potential outliers.
@@ -69,7 +69,7 @@ Most features are well distributed, but some (like Rain) are heavily skewed. Thi
 
 ### 2. Class Distribution
 
-![Pie Chart of Classes](class_distribution_pie_chart.png)
+![Pie Chart of Classes](images/class_distribution_pie_chart.png)
 
 *Takeaway:*  
 There are more "fire" instances than "not fire" in the dataset, indicating a slight class imbalance (about 57% fire, 43% not fire).
@@ -78,7 +78,7 @@ There are more "fire" instances than "not fire" in the dataset, indicating a sli
 
 ### 3. Correlation Heatmap
 
-![Correlation Heatmap](correlation_heatmap.png)
+![Correlation Heatmap](images/correlation_heatmap.png)
 
 *Takeaway:*  
 Some features are highly correlated (e.g., FWI components), which was addressed by removing highly correlated features to reduce multicollinearity.
@@ -87,7 +87,7 @@ Some features are highly correlated (e.g., FWI components), which was addressed 
 
 ### 4. FWI Boxplot
 
-![Boxplot of Fire Weather Index (FWI)](boxplot_fwi.png)
+![Boxplot of Fire Weather Index (FWI)](images/images/boxplot_fwi.png)
 
 *Takeaway:*  
 FWI values are mostly concentrated at lower values, with a few high outliers, indicating that extreme fire risk days are rare.
@@ -96,7 +96,7 @@ FWI values are mostly concentrated at lower values, with a few high outliers, in
 
 ### 5. Monthly Fire Analysis - Sidi-Bel Abbes Region
 
-![Fire Analysis of Sidi- Bel Regions](fire_analysis_sidi_bel_regions.png)
+![Fire Analysis of Sidi- Bel Regions](images/fire_analysis_sidi_bel_regions.png)
 
 *Takeaway:*  
 Most fires in Sidi-Bel Abbes occurred in August and July, with very few in June and September.
@@ -105,7 +105,7 @@ Most fires in Sidi-Bel Abbes occurred in August and July, with very few in June 
 
 ### 6. Monthly Fire Analysis - Bejaia Region
 
-![Fire Analysis of Bejaia Regions](fire_analysis_bejaia_regions.png)
+![Fire Analysis of Bejaia Regions](images/fire_analysis_bejaia_regions.png)
 
 *Takeaway:*  
 Bejaia also saw most fires in August, with a similar seasonal pattern as Sidi-Bel Abbes.
