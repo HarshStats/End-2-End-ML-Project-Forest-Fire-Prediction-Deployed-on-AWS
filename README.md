@@ -2,6 +2,8 @@
 
 A Flask web application that predicts the Forest Fire Weather Index (FWI) for Algerian forests using weather and environmental data. The app is powered by a Ridge Regression model trained on the Algerian Forest Fires Dataset (2012). Users can input weather details to estimate fire risk instantly.
 
+[WebApp Link](https://fwi-prediction.streamlit.app/) 
+
 ---
 
 ## 📊 Dataset
