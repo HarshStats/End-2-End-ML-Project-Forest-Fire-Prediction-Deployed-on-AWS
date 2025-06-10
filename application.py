@@ -1,48 +1,29 @@
-from flask import Flask, render_template, request, jsonify
+import streamlit as st
 import numpy as np
-import pandas as pd
 import pickle
-from sklearn.preprocessing import StandardScaler
-import os
 
-application = Flask(__name__)
-app=application
-
-#import ridge regressor and standard scaler pickle
-
-
+# Load model and scaler
 ridge = pickle.load(open('models/best_model_ridge.pkl', 'rb'))
 scaler = pickle.load(open('models/scaler.pkl', 'rb'))
 
-@app.route('/')
-def index():
-    return render_template('home.html')
+st.title("Fire Area Prediction App")
 
-@app.route('/predictdata', methods=['GET','POST'])
-def predict_datapoint():
-    if request.method == 'POST':
-        try:
-            temp = float(request.form.get('Temperature'))
-            rh = float(request.form.get('RH'))
-            ws = float(request.form.get('Ws'))
-            rain = float(request.form.get('Rain'))
-            ffmc = float(request.form.get('FFMC'))
-            dmc = float(request.form.get('DMC'))
-            isi = float(request.form.get('ISI'))
-            classes = int(request.form.get('Classes'))
-            region = int(request.form.get('Region'))
+# Input fields
+temp = st.number_input('Temperature')
+rh = st.number_input('Relative Humidity (RH)')
+ws = st.number_input('Wind Speed (Ws)')
+rain = st.number_input('Rain')
+ffmc = st.number_input('FFMC')
+dmc = st.number_input('DMC')
+isi = st.number_input('ISI')
+classes = st.number_input('Classes', step=1)
+region = st.number_input('Region', step=1)
 
-            input_data = np.array([[temp, rh, ws, rain, ffmc, dmc, isi, classes, region]])
-            input_scaled = scaler.transform(input_data)
-            result = ridge.predict(input_scaled)[0]
-            result = round(result, 3)
-
-            return render_template('home.html', result=result)
-        except Exception as e:
-            return render_template('home.html', result=f"Error: {e}")
-        
-    return render_template('home.html', result=None)
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5050)
-
+if st.button('Predict'):
+    try:
+        input_data = np.array([[temp, rh, ws, rain, ffmc, dmc, isi, classes, region]])
+        input_scaled = scaler.transform(input_data)
+        result = ridge.predict(input_scaled)[0]
+        st.success(f"Predicted Fire Area: {round(result, 3)}")
+    except Exception as e:
+        st.error(f"Error: {e}")
